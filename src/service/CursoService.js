@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const CURSO_API_BASE_URL = "http://localhost:8000"; // LOCAL -> cambiar por direccion heroku
+const CURSO_API_BASE_URL = "https://nodemicr.herokuapp.com/"; // LOCAL -> cambiar por direccion heroku
 const NOTAS_API_BASE_URL = "https://servnotas.herokuapp.com/apinotas"
 const ALUMNO_API_BASE_URL = "https://studests.herokuapp.com/apistudents"
 
