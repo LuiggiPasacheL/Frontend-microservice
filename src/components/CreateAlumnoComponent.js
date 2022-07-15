@@ -41,7 +41,7 @@ class CreateAlumnoComponent extends Component {
     }
 
     cancel() {
-        this.props.history.push('/reporte-alumno');
+        this.props.history.push('./');
     }
 
     agregarotro() {
@@ -76,7 +76,7 @@ class CreateAlumnoComponent extends Component {
                                 </div>
 
                                 <button className="btn btn-success" onClick={this.saveAlumno} style={{ marginLeft: "330px", marginTop: "10px" }}>Guardar alumno</button>
-                                <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px", marginTop: "10px" }}>Cancelar</button>
+                                <a href="./" className="btn btn-danger" style={{ marginLeft: "10px", marginTop: "10px" }}>Cancelar</a>
                                 <button className="btn btn-info" onClick={this.agregarotro.bind(this)} style={{ marginLeft: "10px", marginTop: "10px" }}>Agregar otro alumno</button>
                             </form>
 
