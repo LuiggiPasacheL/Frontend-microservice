@@ -69,9 +69,8 @@ class ReportCursoComponent extends Component {
                     </tbody>
                 </table>
             </div>
-            <div>
-                <a href="./" className="btn btn-danger" style={{ marginLeft: "10px", marginTop: "10px" }}>Cancelar</a>
-            </div>
+            
+            
         );
     }
 }

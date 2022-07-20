@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import CreateCursoComponent from './components/CreateCursoComponent';
 import ReporteNotasComponent from './components/ReporteNotasComponent';
 import CreateAlumnoComponent from './components/CreateAlumnoComponent';
+import LoginAlumnoComponent from './components/LoginAlumnoComponent';
 // import ReportCursoComponent from './components/ReportCursoComponent';
 
 function App(){
@@ -18,6 +19,7 @@ function App(){
       <Route path='/ingreso-notas' element={<CreateCursoComponent/>} />
       <Route path='/reporte-notas' element={<ReporteNotasComponent/>} />
       <Route path='/ingreso-alumno' element={<CreateAlumnoComponent/>} />
+      <Route path='/alumno-login' element={<LoginAlumnoComponent/>} />
       <Route path='*' element={
         <div>
           Esta ruta no existe
