@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CursoService from '../service/CursoService';
-import { Navigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom';
+import cookiesHelper from '../service/CookiesService';
 
 class LoginAlumnoComponent extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class LoginAlumnoComponent extends Component {
     }
 
     componentDidMount() {
-        CursoService.getAlumnos().then((res) => {
+        CursoService.getUsuarios().then((res) => {
             this.setState({ alumnos: (res.data) })
             console.log(res.data)
         }).catch((err)=>{
@@ -34,6 +35,11 @@ class LoginAlumnoComponent extends Component {
         )
         if(result != -1){
             //Exportar el indice obtenido al reporte 
+            cookiesHelper.setId(result);
+            window.location.href="./menu";
+            cookiesHelper.getId();
+        }else{
+            console.log('credenciales incorrectas')
         }
     }
 

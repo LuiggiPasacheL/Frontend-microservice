@@ -46,7 +46,7 @@ class ReporteNotasComponent extends Component {
                     </table >
                 </div>
                 <div>
-                    <a href="./" className="btn btn-danger" style={{ marginLeft: "10px", marginTop: "10px" }}>Regresar</a>
+                    <a href="./menu" className="btn btn-danger" style={{ marginLeft: "10px", marginTop: "10px" }}>Regresar</a>
                 </div>
             </div>
         )

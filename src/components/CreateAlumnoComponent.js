@@ -18,8 +18,8 @@ class CreateAlumnoComponent extends Component {
     saveAlumno = (e) => {
         e.preventDefault();
         let alumno = {
-            id: this.state.alumnoID,
-            codalu: this.state.apellidoAlumno,
+            curso: this.state.apellidoAlumno,
+            codalu: this.state.alumnoID,
             nombre: this.state.nombreAlumno
         };
         console.log('Alumno guardado')
@@ -70,13 +70,13 @@ class CreateAlumnoComponent extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <label>Apellidos</label>
+                                    <label>Curso</label>
                                     <input placeholder="Quispe Alarcón" name="n2" className="form-control"
                                         value={this.state.n2} onChange={this.changeApellidoAlumnoHandler} />
                                 </div>
 
                                 <button className="btn btn-success" onClick={this.saveAlumno} style={{ marginLeft: "330px", marginTop: "10px" }}>Guardar alumno</button>
-                                <a href="./" className="btn btn-danger" style={{ marginLeft: "10px", marginTop: "10px" }}>Cancelar</a>
+                                <a href="./menu" className="btn btn-danger" style={{ marginLeft: "10px", marginTop: "10px" }}>Cancelar</a>
                                 <button className="btn btn-info" onClick={this.agregarotro.bind(this)} style={{ marginLeft: "10px", marginTop: "10px" }}>Agregar otro alumno</button>
                             </form>
 
