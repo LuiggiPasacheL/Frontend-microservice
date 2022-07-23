@@ -14,11 +14,11 @@ class CursoService {
   }
 
   getNotas(id){
-    return axios.post(NOTAS_API_BASE_URL + '/GetNotas/' + id);
+    return axios.get(NOTAS_API_BASE_URL + '/GetNotas/' + id);
   }
 
   createCurso(curso) {
-    return axios.post(NOTAS_API_BASE_URL + '/agregar', curso);
+    return axios.post(NOTAS_API_BASE_URL + '/guardar', curso);
   }
 
   getUsuarios() {

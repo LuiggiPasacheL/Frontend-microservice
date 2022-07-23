@@ -20,7 +20,7 @@ class CookieHelper{
 	}
 
 	getNombre(){
-		let nombre = this.cookies.get('nombre')
+		let nombre = this.cookies.get('nombrealu')
 		console.log('nombre alumno = ' + nombre);
 		return nombre;
 	}

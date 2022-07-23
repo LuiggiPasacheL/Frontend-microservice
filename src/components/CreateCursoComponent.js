@@ -27,7 +27,7 @@ class CreateCursoComponent extends Component {
     }
     saveCurso = (e) => {
         e.preventDefault();
-        let id = CookiesHelper.getId();
+        let id = parseInt(CookiesHelper.getId());
         let curso = { 
             codalu: id, 
             curso: this.state.nombrecurso,

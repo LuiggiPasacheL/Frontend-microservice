@@ -14,7 +14,7 @@ class ReporteNotasComponent extends Component {
         let id = CookiesService.getId();
         let nombre = CookiesService.getNombre();
         CursoService.getNotas(id).then((res) => {
-            this.setState({ cursos: (res.data), nombre })
+            this.setState({ cursos: (res.data.value), nombre })
             console.log(res.data)
         }).catch((err)=>{
             console.log('Ha ocurrido un error aqui');
@@ -38,9 +38,9 @@ class ReporteNotasComponent extends Component {
                             {
                                 this.state.cursos.map(
                                     curso =>
-                                        <tr key={this.state.nombre}>
+                                        <tr>
                                             <td> {this.state.nombre} </td>
-                                            <td> {curso.curso} </td>
+                                            <td> {curso.PartitionKey} </td>
                                             <td> {curso.califi} </td>
                                         </tr>
                                 )

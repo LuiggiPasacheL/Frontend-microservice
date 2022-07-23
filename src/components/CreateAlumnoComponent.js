@@ -20,8 +20,8 @@ class CreateAlumnoComponent extends Component {
         e.preventDefault();
         let id = CookiesService.getId(); 
         let alumno = {
-            curso: this.state.apellidoAlumno,
-            codalu: id + 1,
+            curso: parseInt(this.state.apellidoAlumno),
+            codalu: parseInt(id) + 1,
             nombre: this.state.nombreAlumno
         };
         console.log('Alumno guardado')
@@ -29,7 +29,6 @@ class CreateAlumnoComponent extends Component {
         CursoService.createAlumno(alumno).then(res => {
             console.log(res.data)
         })
-        window.location.href = "/";
     }
     changeNombreAlumnoHandler = (event) => {
         this.setState({ nombreAlumno: event.target.value });

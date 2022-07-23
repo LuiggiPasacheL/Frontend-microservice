@@ -16,11 +16,11 @@ class LoginAlumnoComponent extends Component {
 
     componentDidMount() {
         CursoService.getUsuarios().then((res) => {
-            this.setState({ alumnos: (res.data) })
-            console.log(res.data)
+            this.setState({ alumnos: (res.data.value), nombreAlumno: this.state.nombreAlumno })
+            this.state.alumnos = res.data;
         }).catch((err)=>{
             console.log('Ha ocurrido un error aqui');
-            console.log(err);
+            console.error(err);
         })
     }
 
@@ -30,12 +30,18 @@ class LoginAlumnoComponent extends Component {
             codalu: this.state.apellidoAlumno,
             nombre: this.state.nombreAlumno
         };*/
-        const result_id = this.state.alumnos.indexOf(
-            alumno => alumno.nombre == nombre
-        )
-        if(result_id != -1){
-            const result_name = this.state.alumnos[result_id].name
-            //Exportar el indice obtenido al reporte 
+
+        let alumno;
+        for(let i = 0; i < this.state.alumnos.length; i++){
+            if(this.state.alumnos[i].nombre == nombre){
+                alumno = this.state.alumnos[i]
+            }
+        }
+
+        if(alumno){
+            console.log(alumno)
+            let result_id = alumno.codigo
+            let result_name = alumno.nombre
             cookiesHelper.setId(result_id);
             cookiesHelper.setNombre(result_name);
             window.location.href="./menu";
@@ -45,7 +51,7 @@ class LoginAlumnoComponent extends Component {
     }
 
     changeNombreAlumnoHandler = (event) => {
-        this.setState({ nombreAlumno: event.target.value });
+        this.setState({ alumnos: this.state.alumnos, nombreAlumno: event.target.value })
     }
 
     cancel() {
@@ -64,9 +70,9 @@ class LoginAlumnoComponent extends Component {
                                 <div className="form-group">
                                     <label>Nombre</label>
                                     <input placeholder="Nombre del alumno" name="n1" className="form-control"
-                                        value={this.state.nombrecurso} onChange={this.changeNombreAlumnoHandler} />
+                                        value={this.state.nombreAlumno} onChange={this.changeNombreAlumnoHandler} />
                                 </div>
-                                <button className="btn btn-success" onClick={this.ingresar(this.state.nombrecurso)} style={{ marginLeft: "120px", marginTop: "10px" }}>Ingresar</button>
+                                <button className="btn btn-success" onClick={this.ingresar(this.state.nombreAlumno)} style={{ marginLeft: "120px", marginTop: "10px" }}>Ingresar</button>
                                 <a href="./" className="btn btn-danger" style={{ marginLeft: "10px", marginTop: "10px" }}>Cancelar</a>
                             </form>
 
