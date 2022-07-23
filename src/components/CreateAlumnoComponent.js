@@ -20,13 +20,21 @@ class CreateAlumnoComponent extends Component {
         e.preventDefault();
         let id = CookiesService.getId(); 
         let alumno = {
-            curso: parseInt(this.state.apellidoAlumno),
-            codalu: parseInt(id) + 1,
+            curso: this.state.apellidoAlumno,
+            codalu: "" + (parseInt(id) + 1),
             nombre: this.state.nombreAlumno
         };
+        let usuario = {
+            codigo: alumno.codalu,
+            tipo: "alu",
+            nombre: this.state.nombreAlumno
+        }
         console.log('Alumno guardado')
         console.log('tipo =>' + JSON.stringify(alumno));
         CursoService.createAlumno(alumno).then(res => {
+            console.log(res.data)
+        })
+        CursoService.createUsuario(usuario).then(res => {
             console.log(res.data)
         })
     }

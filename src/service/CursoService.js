@@ -24,5 +24,9 @@ class CursoService {
   getUsuarios() {
     return axios.get(USUARIOS_API_BASE_URL + '/GetUsers/alu')
   }
+
+  createUsuario(usuario){
+    return axios.post(USUARIOS_API_BASE_URL + '/guardar', usuario)
+  }
 }
 export default new CursoService()

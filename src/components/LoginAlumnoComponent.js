@@ -25,12 +25,6 @@ class LoginAlumnoComponent extends Component {
     }
 
     ingresar = (nombre) => {
-        /*let alumno = {
-            id: this.state.alumnoID,
-            codalu: this.state.apellidoAlumno,
-            nombre: this.state.nombreAlumno
-        };*/
-
         let alumno;
         for(let i = 0; i < this.state.alumnos.length; i++){
             if(this.state.alumnos[i].nombre == nombre){
