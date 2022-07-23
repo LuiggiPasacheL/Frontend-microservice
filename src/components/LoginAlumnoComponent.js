@@ -33,8 +33,8 @@ class LoginAlumnoComponent extends Component {
         const result_id = this.state.alumnos.indexOf(
             alumno => alumno.nombre == nombre
         )
-        const result_name = this.state.alumnos[0].name
         if(result_id != -1){
+            const result_name = this.state.alumnos[result_id].name
             //Exportar el indice obtenido al reporte 
             cookiesHelper.setId(result_id);
             cookiesHelper.setNombre(result_name);
