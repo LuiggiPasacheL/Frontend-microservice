@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CursoService from '../service/CursoService';
 import { Navigate } from 'react-router-dom'
+import CookiesHelper from '../service/CookiesService';
 
 class CreateCursoComponent extends Component {
     constructor(props) {
@@ -26,17 +27,18 @@ class CreateCursoComponent extends Component {
     }
     saveCurso = (e) => {
         e.preventDefault();
+        let id = CookiesHelper.getId();
         let curso = { 
-            codalu: this.state.alumnoID, 
-            curso: this.state.nombrecurso, 
+            codalu: id, 
+            curso: this.state.nombrecurso,
             califi: this.state.prom 
         };
         console.log('Curso guardado')
-        console.log('tipo =>' + JSON.stringify(curso));
+        console.log('Enviando =>' + JSON.stringify(curso));
         CursoService.createCurso(curso).then(res => {
             console.log(res.data)
         })
-        window.location.href = "/";
+        // window.location.href = "/";
     }
 
     changeAlumnoIDHandler = (event) => {
@@ -85,18 +87,11 @@ class CreateCursoComponent extends Component {
                         <h3 className="text-center">Agregar notas de un curso</h3>
                         <div className="card-body">
                             <form>
-                                <div className="form-group">
-
-                                    <label>ID del alumno</label>
-                                    <input placeholder="alumnoID" name="alumnoID" className="form-control"
-                                        value={this.state.alumnoID} onChange={this.changeAlumnoIDHandler} />
-
-                                </div>
 
                                 <div className="form-group">
 
                                     <label>Nombre del curso</label>
-                                    <input placeholder="Nombre" name="n1" className="form-control"
+                                    <input placeholder="Nombre del curso" name="n1" className="form-control"
                                         value={this.state.nombrecurso} onChange={this.changeNombreHandler} />
 
                                 </div>

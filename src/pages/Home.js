@@ -2,10 +2,11 @@ import React from 'react'
 import cookiesHelper from '../service/CookiesService'; // METODO getId para llamar al id del alumno
 
 function Home() {
+	let nombre = cookiesHelper.getNombre();
 	return (
 		<div className="container">
 			<div className="box">
-				<h1 className="title">Portal de Notas</h1>
+				<h1 className="title">Portal de Notas del Alumno {nombre} </h1>
 				<a href="./ingreso-notas" className="index-button index-hov index-act">Ingresar notas</a>
 				<a href="./reporte-notas" className="index-button index-hov index-act">Reporte de notas</a>
 				<a href="./ingreso-alumno" className="index-button index-hov index-act">Ingresar alumno</a>

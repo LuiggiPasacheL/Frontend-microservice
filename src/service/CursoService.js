@@ -5,12 +5,16 @@ const ALUMNO_API_BASE_URL = "https://alumsfunc.azurewebsites.net/api"
 const USUARIOS_API_BASE_URL = "https://usuarifunc.azurewebsites.net/api";
 
 class CursoService {
-  createAlumno(alumno) {
-    return axios.post(ALUMNO_API_BASE_URL + '/guardar', alumno);
+  createAlumno(id) {
+    return axios.post(ALUMNO_API_BASE_URL + '/guardar', id);
   }
 
   getAlumnos(){
     return axios.get(USUARIOS_API_BASE_URL + '/guardar/');
+  }
+
+  getNotas(id){
+    return axios.post(NOTAS_API_BASE_URL + '/GetNotas/' + id);
   }
 
   createCurso(curso) {

@@ -30,14 +30,16 @@ class LoginAlumnoComponent extends Component {
             codalu: this.state.apellidoAlumno,
             nombre: this.state.nombreAlumno
         };*/
-        const result = this.state.alumnos.indexOf(
-            alumno => alumno.nombre == nombre
-        )
-        if(result != -1){
+        // const result = this.state.alumnos.indexOf(
+        //     alumno => alumno.nombre == nombre
+        // )
+        const result_id = 0;
+        const result_name = this.state.alumnos[0].name
+        if(result_id != -1){
             //Exportar el indice obtenido al reporte 
-            cookiesHelper.setId(result);
+            cookiesHelper.setId(result_id);
+            cookiesHelper.setNombre(result_name);
             window.location.href="./menu";
-            cookiesHelper.getId();
         }else{
             console.log('credenciales incorrectas')
         }

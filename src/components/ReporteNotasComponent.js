@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CookiesService from '../service/CookiesService';
 import CursoService from '../service/CursoService'
 
 class ReporteNotasComponent extends Component {
@@ -10,8 +11,10 @@ class ReporteNotasComponent extends Component {
     }
 
     componentDidMount() {
-        CursoService.getAlumnos().then((res) => {
-            this.setState({ cursos: (res.data) })
+        let id = CookiesService.getId();
+        let nombre = CookiesService.getNombre();
+        CursoService.getNotas(id).then((res) => {
+            this.setState({ cursos: (res.data), nombre })
             console.log(res.data)
         }).catch((err)=>{
             console.log('Ha ocurrido un error aqui');
@@ -35,10 +38,10 @@ class ReporteNotasComponent extends Component {
                             {
                                 this.state.cursos.map(
                                     curso =>
-                                        <tr key={curso.nombre}>
-                                            <td> {curso.nombre} </td>
-                                            <td> {curso.nombrecurso} </td>
-                                            <td> {curso.promedio} </td>
+                                        <tr key={this.state.nombre}>
+                                            <td> {this.state.nombre} </td>
+                                            <td> {curso.curso} </td>
+                                            <td> {curso.califi} </td>
                                         </tr>
                                 )
                             }

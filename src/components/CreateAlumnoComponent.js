@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CursoService from '../service/CursoService';
 import { Navigate } from 'react-router-dom'
+import CookiesService from '../service/CookiesService';
 
 class CreateAlumnoComponent extends Component {
     constructor(props) {
@@ -17,9 +18,10 @@ class CreateAlumnoComponent extends Component {
     }
     saveAlumno = (e) => {
         e.preventDefault();
+        let id = CookiesService.getId(); 
         let alumno = {
             curso: this.state.apellidoAlumno,
-            codalu: this.state.alumnoID,
+            codalu: id + 1,
             nombre: this.state.nombreAlumno
         };
         console.log('Alumno guardado')
@@ -57,11 +59,6 @@ class CreateAlumnoComponent extends Component {
                         <h3 className="text-center">Agregar alumno</h3>
                         <div className="card-body">
                             <form>
-                                <div className="form-group">
-                                    <label>ID</label>
-                                    <input placeholder="101" name="n1" className="form-control"
-                                        value={this.state.nombrecurso} onChange={this.changeAlumnoIDHandler} />
-                                </div>
 
                                 <div className="form-group">
                                     <label>Nombre/s</label>
@@ -71,7 +68,7 @@ class CreateAlumnoComponent extends Component {
 
                                 <div className="form-group">
                                     <label>Curso</label>
-                                    <input placeholder="Quispe Alarcón" name="n2" className="form-control"
+                                    <input placeholder="Arquitectura" name="n2" className="form-control"
                                         value={this.state.n2} onChange={this.changeApellidoAlumnoHandler} />
                                 </div>
 
